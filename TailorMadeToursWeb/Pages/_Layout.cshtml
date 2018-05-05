@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>@ViewData["Title"] - </title>
+	<script defer src="~/lib/fontawesome-all.min.js"></script>
+
+	<environment include="Development">
+		<script src="~/js/lib/jquery.min.js"></script>
+		<script src="~/js/lib/popper.min.js"></script>
+		<script src="~/js/lib/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="~/css/bootstrap.min.css">
+		<link rel="stylesheet" href="~/css/animate.css">
+		<link rel="stylesheet" href="~/css/site.css" />
+		<!-- CSS and other web assets from Ray Villalobos LinkedIn Learning courses.
+		 Travel classes from Walt Ritscher WPF courses.-->
+		<!-- ALL OF YOUR SITE CODE HERE -->
+		<!-- ADDITIONAL JS HERE -->
+		<script src="~/js/script.js"></script>
+	</environment>
+	<environment exclude="Development">
+		<link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="~/css/animate.css">
+		<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+	</environment>
+</head>
+<body data-spy="scroll" data-target=".site-nav" data-offset="80">
+	<header class="site-header d-flex flex-column align-content-between">
+		<nav class="site-nav navbar navbar-expand-md navbar-dark family-sans fixed-top">
+			<div class="container-fluid">
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myTogglerNav" aria-controls="myTogglerNav" aria-label="Toggle Navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand text-lowercase font-weight-light" href="#layout-hero"><i class="fas fa-cube mr-2"></i> Tailor-made Tours</a>
+				<div class="collapse navbar-collapse" id="myTogglerNav">
+					<div class="navbar-nav ml-auto font-weight-regular text-uppercase">
+						<a class="nav-item nav-link" href="/">home</a>
+						<a class="nav-item nav-link" asp-page="DatabindToSingleItem">one</a>
+						<a class="nav-item nav-link" asp-page="DatabindWithRouteParam">two</a>
+						<a class="nav-item nav-link" href="#layout-carousel">three</a>
+						<a class="nav-item nav-link" href="#layout-nested">four</a>
+
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section id="layout-hero" class=" jumbotron-fluid py-2 d-flex align-items-center mt-5">
+			<div class="container text-center text-white">
+				<div class="row justify-content-center">
+					<div class="col-11 col-sm-10 col-md-8 animated fadeInUp">
+					@*<img src="~/images/Tours/TourHeader.jpg"/>*@
+						@*<div class="glyphicon-leaf"></div>*@
+						
+					</div><!-- col -->
+				</div><!-- row -->
+			</div><!-- container -->
+		</section><!-- background -->
+	</header>
+
+	<article id="layout-media" class="section ">
+		<header class="container text-center">
+
+
+		</header>
+		<section class="container my-5">
+			<div>
+
+			</div>
+		</section>
+	</article>
+
+	<article id="layout-cards" class="section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-8 col-sm-12 col-lg-10">
+					<div class="card-deck">
+						@RenderBody()
+
+					</div><!-- card-group -->
+				</div><!-- col -->
+			</div><!-- row -->
+		</div> <!-- container -->
+	</article>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8 col-sm-12 col-lg-10">
+				<div class="card-deck">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- content container -->
+	<footer class="footer bg-secondary">
+		<div class="container py-5 d-flex justify-content-center">
+			<a class="text-white px-2" href="https://twitter.com/waltritscher"><i class="fab fa-twitter"></i></a>
+
+			<a class="text-white px-2" href="https://linkedin.com/in/waltritscher"><i class="fab fa-linkedin"></i></a>
+			<a class="text-white px-2" href="https://github.com/waltritscher/"><i class="fab fa-github"></i></a>
+
+
+
+
+		</div>
+	</footer>
+
+</body>
+</html>
