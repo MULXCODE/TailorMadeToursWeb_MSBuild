@@ -8,11 +8,11 @@ using TailorMadeTours.Models;
 
 namespace FastFocusApp.Pages
 {
-    public class DatabindWithRouteParamModel : PageModel
+  public class DatabindWithRouteParamModel : PageModel
+  {
+    public void OnGet(int stopNumber)
     {
-    public void OnGet(int id)
-    {
-      CurrentTourStop = TailorMadeTours.Models.TourSource.TourStops.ElementAt(id);
+      CurrentTourStop = TailorMadeTours.Models.TourSource.TourStops.Where(x => x.StopNumber == stopNumber) as TourStop;
 
     }
 
@@ -25,7 +25,7 @@ namespace FastFocusApp.Pages
 
 
     public bool ShouldShowMessage => !String.IsNullOrEmpty(Message);
-   [BindProperty]
+    [BindProperty]
     public TourStop CurrentTourStop { get; set; }
   }
 }
