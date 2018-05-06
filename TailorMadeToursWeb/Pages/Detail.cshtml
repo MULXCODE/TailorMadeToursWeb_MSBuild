@@ -1,16 +1,9 @@
 ﻿@page "{stopnumber:int?}"
-@model FastFocusApp.Pages.DatabindWithRouteParamModel
+@model FastFocusApp.Pages.DetailModel
 @{
 	
 }
-@if (Model.ShouldShowMessage)
-{
-	<div class="alert alert-info alert-dismissable" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		<span aria-hidden="true">&times;</span></button>
-		@Model.Message
-	</div>
-}
+
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-8 col-sm-12 col-lg-10">
@@ -29,10 +22,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center">
-		<div class="col-8 col-sm-12 col-lg-10">
-			<a class="btn btn-primary" asp-page="EditTourStop" 
-				 asp-route-id='@RouteData.Values["id"]'>Edit this tour stop.</a>
-		</div>
-	</div>
+	
 </div>

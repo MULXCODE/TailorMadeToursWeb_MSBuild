@@ -8,23 +8,23 @@ using TailorMadeTours.Models;
 
 namespace FastFocusApp.Pages
 {
-  public class DatabindWithRouteParamModel : PageModel
+  public class DetailModel : PageModel
   {
     public void OnGet(int stopNumber)
     {
-      CurrentTourStop = TailorMadeTours.Models.TourSource.TourStops.Where(x => x.StopNumber == stopNumber) as TourStop;
+      CurrentTourStop = TailorMadeTours.Models.TourSource.TourStops.Where(x => x.StopNumber == stopNumber).FirstOrDefault() as TourStop;
 
+      // add a bug to the code
+      // when tour is stop Lurie Garden
+      var currentStopNumber = CurrentTourStop.StopNumber;
+      if (CurrentTourStop.StopNumber== 6)
+      {
+        // set to the wrong stop
+        CurrentTourStop = TailorMadeTours.Models.TourSource.TourStops.First() as TourStop;
+      }
     }
 
-    // use TempData property to pass data between pages
-    // Properties marked with TempData
-    // attribute with are stored in encrypted cookie
-    // When the data is read from the cookie, it is deleted.
-    [TempData]
-    public string Message { get; set; }
-
-
-    public bool ShouldShowMessage => !String.IsNullOrEmpty(Message);
+ 
     [BindProperty]
     public TourStop CurrentTourStop { get; set; }
   }

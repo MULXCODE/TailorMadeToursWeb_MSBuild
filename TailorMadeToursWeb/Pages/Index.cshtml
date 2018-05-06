@@ -1,30 +1,41 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
-@foreach (var currentStop in TailorMadeTours.Models.TourSource.TourStops)
-{
 <div class="container">
-	<div class="row justify-content-center">
-		<div class="col-8 col-sm-12 col-lg-10">
-			<div class="h2">
-				<p>@currentStop.Name</p>
-			</div>
-		</div>
-		
-		<div class="col-8 col-sm-12 col-lg-10">
-			<div class="h5 text-muted">
-				<p>@currentStop.Description</p>
-			</div>
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col-8 col-sm-12 col-lg-10">
-			<a class="btn btn-primary" asp-page="Detail"
-				 asp-route-stopnumber='@currentStop.StopNumber'>Learn more</a>
+	<div class="row justify-content-left  py-4">
+		<div class="col-8">
+
+			<div class="h3">Your custom tour itinerary</div>
+			<div class="small ">compiled by Eliza Brethon</div>
+
 		</div>
 	</div>
 </div>
+
+@foreach (var currentStop in TailorMadeTours.Models.TourSource.TourStops)
+{<div class="container ">
+
+		<div class="row justify-content-center card mb-4">
+
+			<div class="col-8">
+
+				<div class="h2">
+					<p>@currentStop.Name</p>
+				</div>
+			
+				<div class="h5 text-muted">
+					<p>@currentStop.Description</p>
+				</div>
+
+
+				<a class="btn btn-default btn-sm" asp-page="Detail"
+					 asp-route-stopnumber='@currentStop.StopNumber'>Learn more</a>
+
+			</div>
+			
+		</div>
+	</div>
 }
